@@ -14,7 +14,7 @@ public class VistaMejorJugador extends Frame{
 		setSize(300,300);
 		setResizable(false);
 		setLocationRelativeTo(null);
-		setTitle("Ultimos Ganadores");
+		setTitle("Top10");
 		setLayout(new FlowLayout());
 		Connection con = Modelo.conectar();
 		Modelo.rellenarTextArea(con, consulta);
