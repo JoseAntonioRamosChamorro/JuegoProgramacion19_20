@@ -1,5 +1,6 @@
 package juego;
 
+import java.awt.TextArea;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -16,7 +17,6 @@ import javax.swing.JOptionPane;
 
 public class Controlador implements WindowListener{
 	static String nick;
-	
 	//vistas
 	VistaInicio vInicio= null;
 	VistaMejorJugador vMejorJugador = null;
@@ -57,7 +57,9 @@ public class Controlador implements WindowListener{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
 				vMejorJugador.setVisible(true);
+				
 
 			}
 		});
@@ -65,7 +67,7 @@ public class Controlador implements WindowListener{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				
 				vPedirNombre.setVisible(true);
 
 			}
@@ -89,6 +91,7 @@ public class Controlador implements WindowListener{
 				vPedirNombre.setVisible(false);
 				vGameSolo.jugador = VistaPedirNombre.name;
 				vGameSolo.nombre.setText(vGameSolo.jugador);
+				vPedirNombre.txpl1.setText("");
 			}
 		});
 		vPedirNombre.btnVolver.addActionListener(new ActionListener() {
@@ -125,7 +128,10 @@ public class Controlador implements WindowListener{
 				String PcElec = Lista.get(EleccionAle);          
 
 				//gana
-				if (elec1=="Piedra" && PcElec == "Tijeras") {
+				if (elec1 =="Seleccionar 1") {
+					JOptionPane.showMessageDialog(null, "Seleccione una jugada menos esta "+jug);
+				}
+				else if (elec1=="Piedra" && PcElec == "Tijeras") {
 					JOptionPane.showMessageDialog(null, "Usted Gano "+jug);
 					punt=punt+1;
 				}else if (elec1=="Papel" && PcElec == "Piedra") {
