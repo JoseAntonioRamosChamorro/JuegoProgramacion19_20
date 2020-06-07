@@ -4,7 +4,6 @@ import java.awt.Button;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.TextArea;
-import java.sql.Connection;
 
 public class VistaMejorJugador extends Frame{
 	private static final long serialVersionUID = 1L;
@@ -16,9 +15,7 @@ public class VistaMejorJugador extends Frame{
 		setLocationRelativeTo(null);
 		setTitle("Top10");
 		setLayout(new FlowLayout());
-		Connection con = Modelo.conectar();
-		Modelo.rellenarTextArea(con, consulta);
-		Modelo.desconectar(con);
+
 		consulta.setEditable(false);
 		add(consulta);
 		add(btVolver);

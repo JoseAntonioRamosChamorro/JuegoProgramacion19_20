@@ -1,6 +1,5 @@
 package juego;
 
-import java.awt.TextArea;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -58,6 +57,9 @@ public class Controlador implements WindowListener{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
+				Connection con = Modelo.conectar();
+				Modelo.rellenarTextArea(con, vMejorJugador.consulta);
+				Modelo.desconectar(con);
 				vMejorJugador.setVisible(true);
 				
 
